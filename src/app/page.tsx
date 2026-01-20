@@ -42,7 +42,9 @@ export default function Home() {
   const [rubInput, setRubInput] = useState("");
   const [rates, setRates] = useState<Rates | null>(null);
   const [ratesError, setRatesError] = useState<string | null>(null);
-  const wallet = process.env.NEXT_PUBLIC_USDT_TRC20_WALLET || "TSxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  const wallet =
+    process.env.NEXT_PUBLIC_USDT_TRC20_WALLET ||
+    "TL6AWf77sdAYJBeKKiaWiNxKSm4GxU33PC";
 
   useEffect(() => {
     let cancelled = false;
