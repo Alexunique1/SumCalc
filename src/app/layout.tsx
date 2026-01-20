@@ -1,7 +1,6 @@
-import type { Metadata } from "next"
-import { Roboto } from "next/font/google"
-import "./globals.css"
-import Navigation from './components/Navigation'
+import type { Metadata } from "next";
+import { Roboto } from "next/font/google";
+import "./globals.css";
 
 const roboto = Roboto({ 
   weight: ['300', '400', '500', '700'],
@@ -10,8 +9,8 @@ const roboto = Roboto({
 })
 
 export const metadata: Metadata = {
-  title: "HostAssist - Ваш надежный помощник в хостинге",
-  description: "Профессиональные услуги хостинга и поддержки для вашего бизнеса",
+  title: "SumCalc — калькулятор сумм к оплате",
+  description: "Калькулятор расчета сумм к оплате (USD/RUB, USDT/RUB) с комиссией",
   icons: {
     icon: [
       { url: '/images/favicon/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
@@ -50,8 +49,7 @@ export default function RootLayout({
         <link rel="icon" type="image/x-icon" href="/images/favicon/favicon.ico" />
       </head>
       <body className={roboto.className}>
-        <Navigation />
-        <main>{children}</main>
+        <main className="min-h-screen bg-white text-gray-900">{children}</main>
       </body>
     </html>
   )

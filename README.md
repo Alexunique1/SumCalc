@@ -1,4 +1,25 @@
-# HostAssist Website
+# SumCalc
+
+Минималистичный калькулятор сумм к оплате (USD/RUB и USDT/RUB) с комиссией.
+
+## Настройка
+
+### Переменные окружения
+
+Создайте файл `.env.local` в корне проекта и добавьте:
+
+- **OPENEXCHANGERATES_APP_ID**: App ID для OpenExchangeRates (используем курс USD→RUB).
+- **NEXT_PUBLIC_USDT_TRC20_WALLET**: адрес кошелька для отображения на странице (пока можно оставить заглушку).
+
+Пример лежит в `docs/env.example`.
+
+## Запуск
+
+```bash
+npm install
+npm run dev
+```
+
 
 Веб-сайт для системы самозаселения гостей в отели.
 
