@@ -195,12 +195,13 @@ export default function Home() {
                 <div className="flex flex-wrap gap-2">
                   <button
                     className={primaryBtn}
-                    onClick={() => copy(String(formatUsdt2(computed.usdtToPay)))}
+                    onClick={() =>
+                      copy(
+                        `К оплате ${formatUsdt2(computed.usdtToPay)} USDT\nАдрес для оплаты (USDT TRC20): ${wallet}`
+                      )
+                    }
                   >
-                    Скопировать сумму USDT
-                  </button>
-                  <button className={secondaryBtn} onClick={() => copy(wallet)}>
-                    Скопировать адрес
+                    Скопировать
                   </button>
                 </div>
 
