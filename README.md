@@ -8,7 +8,7 @@
 
 Создайте файл `.env.local` в корне проекта и добавьте:
 
-- **OPENEXCHANGERATES_APP_ID**: App ID для OpenExchangeRates (используем курс USD→RUB).
+- **NEXT_PUBLIC_OPENEXCHANGERATES_APP_ID**: App ID для OpenExchangeRates (используем курс USD→RUB). Для статического хостинга ключ будет доступен в браузере.
 - **NEXT_PUBLIC_USDT_TRC20_WALLET**: адрес кошелька для отображения на странице (пока можно оставить заглушку).
 
 Пример лежит в `docs/env.example`.
@@ -20,45 +20,13 @@ npm install
 npm run dev
 ```
 
+## Деплой на Beget (статический хостинг)
 
-Веб-сайт для системы самозаселения гостей в отели.
-
-## Технологии
-
-- Next.js 14
-- React 18
-- TypeScript
-- Tailwind CSS
-- shadcn/ui
-- Framer Motion
-
-## Установка
-
-1. Клонируйте репозиторий:
-```bash
-git clone https://github.com/your-username/hostassist-website.git
-cd hostassist-website
-```
-
-2. Установите зависимости:
-```bash
-npm install
-```
-
-3. Запустите проект в режиме разработки:
-```bash
-npm run dev
-```
-
-4. Откройте [http://localhost:3000](http://localhost:3000) в вашем браузере.
-
-## Сборка для продакшена
+Проект собирается в статические файлы (папка `out/`), которые нужно залить в `public_html`.
 
 ```bash
 npm run build
-npm start
 ```
 
-## Лицензия
-
-MIT 
+После сборки:
+- залей содержимое `out/` в `public_html` (с заменой старых файлов).

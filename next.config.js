@@ -2,6 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  output: 'export',
+  trailingSlash: true,
   images: {
     domains: [],
     unoptimized: true,
@@ -25,20 +27,13 @@ const nextConfig = {
     }
     return config
   },
-  // Настройки для сервера разработки
-  webSocketServer: {
-    path: '/_next/webpack-hmr',
-  },
   // Отключаем предупреждения о дополнительных атрибутах
   compiler: {
     styledComponents: true,
     removeConsole: process.env.NODE_ENV === 'production',
   },
   // Настройки для обработки дополнительных атрибутов
-  experimental: {
-    optimizeCss: true,
-    optimizePackageImports: ['@mui/material', '@mui/icons-material'],
-  },
+  experimental: {},
 }
 
 module.exports = nextConfig 

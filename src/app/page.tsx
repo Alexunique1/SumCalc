@@ -51,10 +51,24 @@ export default function Home() {
     (async () => {
       try {
         setRatesError(null);
-        const res = await fetch("/api/rates", { cache: "no-store" });
+        const appId =
+          process.env.NEXT_PUBLIC_OPENEXCHANGERATES_APP_ID ||
+          "378296b319274d21b6a764c50e406da7";
+
+        const res = await fetch(
+          `https://openexchangerates.org/api/latest.json?app_id=${encodeURIComponent(appId)}&symbols=RUB`,
+          { cache: "no-store" }
+        );
         if (!res.ok) throw new Error(String(res.status));
-        const json = (await res.json()) as Rates;
-        if (!cancelled) setRates(json);
+        const json = (await res.json()) as { rates?: { RUB?: number } };
+        const usdRub = json.rates?.RUB;
+        if (typeof usdRub !== "number" || !Number.isFinite(usdRub) || usdRub <= 0) {
+          throw new Error("Invalid RUB rate");
+        }
+
+        const usdtRub = usdRub;
+        if (!cancelled)
+          setRates({ usdRub, usdtRub, updatedAt: new Date().toISOString() });
       } catch {
         if (!cancelled) setRatesError("Не удалось загрузить курс. Проверьте настройки.");
       }

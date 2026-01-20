@@ -11,7 +11,6 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   title: "SumCalc — калькулятор сумм к оплате",
   description: "Калькулятор расчета сумм к оплате (USD/RUB, USDT/RUB) с комиссией",
-  themeColor: '#098E57',
 }
 
 export default function RootLayout({
