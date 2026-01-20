@@ -115,9 +115,6 @@ export default function Home() {
     <div className="mx-auto max-w-2xl px-4 py-10">
       <div className="mb-6">
         <h1 className="text-2xl sm:text-3xl font-bold">Калькулятор суммы</h1>
-        <p className="text-gray-600 mt-1">
-          Авто-курс USD/RUB (OpenExchangeRates) + расчет USDT/RUB. Только сеть TRC20.
-        </p>
         {rates?.updatedAt && (
           <p className="text-xs text-gray-500 mt-1">Курс обновлён: {new Date(rates.updatedAt).toLocaleString("ru-RU")}</p>
         )}
@@ -160,11 +157,6 @@ export default function Home() {
                 <div className="text-sm text-gray-700">
                   К оплате: <span className="font-bold">{formatRubInt(computed.rubToPay)} ₽</span>
                 </div>
-                {"commissionRate" in computed && (
-                  <div className="text-xs text-gray-500 mt-1">
-                    Коэффициент комиссии: {computed.commissionRate}
-                  </div>
-                )}
               </div>
             )}
           </div>
@@ -210,7 +202,7 @@ export default function Home() {
                   </button>
                 </div>
 
-                <div className="text-xs text-gray-500">Важно: отправляйте только в сети TRC20.</div>
+                <div className="text-xs text-gray-500">Только сеть TRC20.</div>
               </div>
             )}
           </div>
