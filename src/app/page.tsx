@@ -44,7 +44,7 @@ export default function Home() {
   const [ratesError, setRatesError] = useState<string | null>(null);
   const wallet =
     process.env.NEXT_PUBLIC_USDT_TRC20_WALLET ||
-    "TL6AWf77sdAYJBeKKiaWiNxKSm4GxU33PC";
+    "TXgKoMQhFe5M86MPYNsE7w9X196LmD6VDp";
 
   useEffect(() => {
     let cancelled = false;
@@ -103,8 +103,8 @@ export default function Home() {
     const usdtBase = amountRub / rates.usdtRub;
     if (usdtBase > 10_000) return { error: "Максимум 10 000 USDT (в эквиваленте)." };
 
-    // Комиссия фиксируется в USDT: считаем базу в USDT по курсу, затем добавляем 10% в USDT.
-    const usdtToPay = usdtBase * 1.1;
+    // Комиссия 10% "сверху": делим базу на (1 - 0.1).
+    const usdtToPay = usdtBase / 0.9;
     const rubWithCommission = usdtToPay * rates.usdtRub;
 
     return {
@@ -196,9 +196,6 @@ export default function Home() {
                 <div className="text-sm text-gray-700">
                   К оплате{" "}
                   <span className="font-bold">{formatUsdt2(computed.usdtToPay)} USDT</span>{" "}
-                  <span className="text-gray-500">
-                    ({formatRubInt(computed.rubWithCommission ?? 0)} ₽)
-                  </span>
                 </div>
 
                 <div className="text-sm text-gray-700">
